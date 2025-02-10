@@ -1,0 +1,371 @@
+
+<!--
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Silva & Associados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #c0976b;
+            --text-color: #333;
+            --light-bg: #f5f5f5;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .about-hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('/api/placeholder/1920/600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 5% 4rem;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .history-section {
+            padding: 4rem 5%;
+            background-color: white;
+        }
+
+        .history-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .history-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .history-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline {
+            padding: 4rem 5%;
+            background-color: var(--light-bg);
+        }
+
+        .timeline h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .timeline-year {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .team-section {
+            padding: 4rem 5%;
+            background-color: white;
+        }
+
+        .team-section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .team-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .team-info p {
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+
+        .values-section {
+            padding: 4rem 5%;
+            background-color: var(--light-bg);
+        }
+
+        .values-section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .value-card h3 {
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        @media (max-width: 768px) {
+            .history-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Breno Felix</div>
+            <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="contato.html">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <h1>Nossa História</h1>
+        <p>Mais de duas décadas de excelência jurídica e compromisso com nossos clientes</p>
+    </section>
+
+    <section class="history-section">
+        <div class="history-content">
+            <div class="history-text">
+                <h2>Tradição e Inovação</h2>
+                <p>bla bla blablblablbalblablbllblablblablbalbbllbalbalbablalab</p>
+            </div>
+            <div class="history-image">
+                <img src="/api/placeholder/600/400" alt="foto">
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline">
+        <h2>Nossa Trajetória</h2>
+        <div class="timeline-grid">
+            <div class="timeline-item">
+                <div class="timeline-year">2000</div>
+                <h3>Fundação</h3>
+                <p>Início das atividades com foco em Direito Civil</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2010</div>
+                <h3>Expansão</h3>
+                <p>Ampliação das áreas de atuação e equipe</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2015</div>
+                <h3>Modernização</h3>
+                <p>Implementação de tecnologias e processos digitais</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <h3>Consolidação</h3>
+                <p>Reconhecimento como referência no setor jurídico</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2>Nossa Equipe</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="/api/placeholder/400/400" alt="Dr. João Silva">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. João Silva</h3>
+                    <p>Sócio Fundador</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="/api/placeholder/400/400" alt="Dra. Maria Santos">
+                </div>
+                <div class="team-info">
+                    <h3>Dra. Maria Santos</h3>
+                    <p>Direito Empresarial</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="/api/placeholder/400/400" alt="Dr. Pedro Costa">
+                </div>
+                <div class="team-info">
+                    <h3>Dr. Pedro Costa</h3>
+                    <p>Direito Civil</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <h2>Nossos Valores</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>Ética</h3>
+                <p>Comprometimento com a transparência e integridade em todas as ações</p>
+            </div>
+            <div class="value-card">
+                <h3>Excelência</h3>
+                <p>Busca constante pela qualidade e aperfeiçoamento dos serviços</p>
+            </div>
+            <div class="value-card">
+                <h3>Dedicação</h3>
+                <p>Compromisso total com as necessidades de nossos clientes</p>
+            </div>
+            <div class="value-card">
+                <h3>Inovação</h3>
+                <p>Aplicação de soluções modernas e eficientes</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Breno Felix - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>
+
+-->

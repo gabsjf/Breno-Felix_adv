@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Escritório de Advocacia Silva & Associados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Mantém a cor do elemento pai */
+    transition: none !important; /* Remove transições de cor (opcional) */
+}
+
+/* Opcional: Para todos os estados do link */
+a:link, 
+a:visited, 
+a:hover, 
+a:active {
+    color: inherit; /* Mantém a mesma cor em todos os estados */
+    text-decoration: none; /* Remove sublinhado em todos os estados */
+}
+
+        :root {
+            --primary-color: #967860;
+            --secondary-color: #9d6f4d;
+            --text-color: #333;
+            --light-bg: #f6f3ec;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-bg);
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 5%;
+            transition: background-image 1s ease-in-out;
+            background-image: url('/src/Breno1.jpeg')
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Escurece a imagem */
+            z-index: 1;
+        }
+
+        .hero-content{
+            position: relative;
+            z-index: 2; /* Mantém o texto acima da camada escura */
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 6vw, 4rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+             margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: #a17f5a;
+        }
+
+        .services {
+            padding: 5rem 5%;
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+        .cropped-image {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+        }
+        .about {
+            padding: 5rem 5%;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .about-text {
+         flex: 1 1 55%;
+         min-width: 300px;
+        }
+        .image-container {
+            flex: 1 1 40%; /* Reduzi a proporção da imagem */
+            max-width: 450px; /* Limite máximo menor */
+            min-width: 250px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 15px; /* Espaçamento extra */
+        }
+
+
+
+        .about-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact {
+            background-color: var(--light-bg);
+            padding: 5rem 5%;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 5%;
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .modal {
+            position: fixed;
+            bottom: 80px; /* Ajuste para alinhar com o botão */
+            right: 20px;  /* Ajuste para alinhar com o botão */
+            background: none;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: none;
+            width: 300px;
+            display: none; /* Mantém escondido até ser ativado */
+            }
+            .modal.active {
+             display: block; /* Exibe quando necessário */
+            }
+        .modal-content {
+            background: #111;
+            padding: 20px;
+            width: 300px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            font-size: 18px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            background: #222;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #25d366;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        a:active, a:visited {
+         text-decoration: none;
+        color: inherit; /* Isso mantém a cor original do link */
+        }
+
+        @media (max-width: 768px) {
+                    .image-container {
+                max-width: 100%;
+                min-height: 280px; /* Altura menor em mobile */
+            }
+            
+            .cropped-image {
+                min-height: 280px;
+            }
+            
+            .about-text {
+                flex-basis: 100%; /* Texto ocupa toda a largura em mobile */
+            }
+        }
+        
+        @media (min-width: 1200px) {
+    .image-container {
+        max-width: 400px; /* Limite adicional para telas grandes */
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">Breno Felix</a></div>
+            <div class="nav-links">
+                <a href="#inicio">Início</a>
+                <a href="/servicos.html">Serviços</a>
+                <a href="/contato.html">Contato</a>
+            </div>
+        </nav>
+    </header>
+    <div class="whatsapp-button" onclick="openModal()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+    <div id="whatsappModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Contato WhatsApp</h2>
+            <form id="whatsappForm">
+                <label>Nome Completo</label>
+                <input type="text" id="nome" required>
+                <label>Telefone</label>
+                <input type="tel" id="telefone" required>
+                <a id="whatsappLink" href="#" target="_blank" >
+                    <button type="button" onclick="enviarMensagem()">Enviar <i class="fas fa-paper-plane"></i></button>
+                </a>
+            </form>
+        </div>
+    </div>
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Excelência em Advocacia</h1>
+            <p>Defendendo seus direitos com compromisso e profissionalismo há mais de 8 anos</p>
+            <a href="/contato.html" class="cta-button">Agende uma Consulta</a>
+        </div>
+    </section>
+
+    <section class="services" id="servicos">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Contencioso cível</h3>
+                <p>Atuação e defesa em litígios contratuais, familiares, sucessórios e demais
+                     questões de natureza civil.</p>
+            </div>
+            <div class="service-card">
+                <h3>Assessoria e mediação</h3>
+                <p>Suporte jurídico preventivo e resolução consensual de conflitos.</p>
+            </div>
+            <div class="service-card">
+                <h3>Direito Ambiental</h3>
+                <p>Defesa e recursos em âmbito administrativo e judicial.</p>
+            </div>
+            <div class="service-card">
+                <h3>Débitos fiscais</h3>
+                <p>Orientação e defesa em execuções fiscais e demais cobranças.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="sobre">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Dr. Breno Felix</h2>
+                <p>Advogado formado pela Universidade Católica Dom Bosco e pós-graduado em Direito Constitucional. 
+                    Com ampla experiência na área cível, atua de forma estratégica em contratos, questões atinentes à responsabilidade civil, 
+                    direito de família e sucessões, direito do consumidor e questões fiscais e ambientais. Desde 2022, é sócio do escritório Farenzena & Franco,
+                     reconhecido como um dos maiores e mais especializados do país na área de direito ambiental.
+                     Sua abordagem combina conhecimento técnico sólido com soluções práticas e personalizadas para cada cliente.</p>
+            </div>
+            <div class="image-container">
+                <img src="/src/breno-crop.png" alt="Escritório de advocacia" class="cropped-image">
+            </div>
+        </div>
+    </section>
+   
+
+    <footer>
+        <p>&copy; 2025 Breno Felix - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>
+<script>
+    function openModal() {
+        document.getElementById("whatsappModal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("whatsappModal").style.display = "none";
+    }
+
+    document.getElementById("whatsappForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var nome = document.getElementById("nome").value;
+        var telefone = document.getElementById("telefone").value;
+
+        if (nome && telefone) {
+            var mensagem = `Olá, meu nome é ${nome} e meu telefone é ${telefone}.`;
+            var url = `https://wa.me/SEUNUMEROAQUI?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, "_blank");
+            closeModal();
+        }
+    });
+    function enviarMensagem() {
+    // Captura os valores dos campos
+    const nome = document.getElementById('nome').value;
+    const telefone = document.getElementById('telefone').value;
+
+    // Verifica se os campos estão preenchidos
+    if (!nome || !telefone) {
+        alert("Por favor, preencha todos os campos.");
+        return;
+    }
+
+    // Cria a mensagem personalizada
+    const mensagem = `Olá, consegui seu contato através do site. Tenho um caso, gostaria de mais informações!%0ANome: ${encodeURIComponent(nome)}%0ATelefone: ${encodeURIComponent(telefone)}`;
+
+    // Cria a URL do WhatsApp com a mensagem personalizada
+    const url = `https://wa.me/5567999385385?text=${mensagem}`;
+
+    // Atualiza o link do WhatsApp
+    document.getElementById('whatsappLink').href = url;
+
+    // Redireciona para a URL do WhatsApp
+    window.open(url, '_blank');
+}
+
+const imagens = [
+        "url(src/Breno1.jpeg)",
+        "url(src/Breno2.jpeg)",
+        "url(src/Breno3.jpeg)",
+        "url(src/Breno4.jpeg)",
+        "url(src/Breno5.jpeg)"
+    ];
+
+    let indexAtual = 0;
+    const heroSection = document.querySelector('.hero');
+
+    function trocarImagem() {
+        indexAtual = (indexAtual + 1) % imagens.length;
+        heroSection.style.backgroundImage = imagens[indexAtual];
+    }
+
+    // Troca a imagem a cada 5 segundos
+    setInterval(trocarImagem, 5000);
+
+</script>
