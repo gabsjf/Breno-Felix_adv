@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Silva & Associados</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        a {
+            text-decoration: none; 
+            color: inherit; /* Remove transições de cor (opcional) */
+        }
+
+        
+        a:link, 
+        a:visited, 
+        a:hover, 
+        a:active {
+            color: inherit; 
+            text-decoration: none; 
+        }
+
+        :root {
+            --primary-color: #967860;
+            --secondary-color: #9d6f4d;
+            --text-color: #333;
+            --light-bg: #f6f3ec;
+            --card-hover: #f8f9fa;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .services-grid {
+            padding: 4rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-list {
+            list-style: none;
+            margin: 1rem 0;
+            flex-grow: 1;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        .services-header {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/src/Breno3.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        padding: 8rem 5% 4rem;
+        text-align: center;
+    }
+
+        .services-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .services-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            padding: 4rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-image {
+            height: 200px;
+            background-color: var(--primary-color);
+            position: relative;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .service-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-list li::before {
+            content: "→";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #a17f5a;
+        }
+
+        .expertise-section {
+            background-color: var(--light-bg);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .expertise-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .expertise-number {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 5%;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .services-header h1 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">Breno Felix</a></div>
+            <div class="nav-links">
+                <a href="index.html">Início</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="contato.html">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="services-header">
+        <h1>Nossos Serviços</h1>
+        <p>Oferecemos soluções jurídicas completas e personalizadas para atender às suas necessidades específicas.</p>
+    </section>
+
+    <section class="services-grid">
+        <div class="service-card">
+            <div class="service-image">
+                <img src="/src/direito_civel.jpg" alt="Direito Civil" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="service-content">
+                <h3>Direito Cível</h3>
+                <p> Assessoria completa e resolução de questões cíveis.</p>
+                <ul class="service-list">
+                    <li>Direito de Família</li>
+                    <li>Sucessões e inventário</li>
+                    <li>Responsabilidade Civil</li>
+                    <li>Direito real (posse e propriedade)</li>
+                    <li>direito do consumidor</li>
+                    <li>contratos</li>
+                </ul>
+                <a href="contato.html" class="cta-button">Consultar</a>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <div class="service-image">
+                <img src="/src/direito_ambiental.jpg" alt="Direito Empresarial" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="service-content">
+                <h3>Direito Ambiental</h3>
+                <p>Consultoria especializada e solução de conflitos ambientais.</p>
+                <ul class="service-list">
+                    <li>Defesa e recursos em processo administrativo ambiental</li>
+                    <li>Contencioso ambiental</li>
+                    <li>Multas e embargos ambientais</li>
+                </ul>
+                <a href="contato.html" class="cta-button">Consultar</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="expertise-section">
+        <h2>Nossa Expertise em Números</h2>
+        <div class="expertise-grid">
+            <div class="expertise-item">
+                <div class="expertise-number">8+</div>
+                <p>Anos de Experiência</p>
+            </div>
+            <div class="expertise-item">
+                <div class="expertise-number">100%</div>
+                <p>Clientes Satisfeitos</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Breno Felix - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>
